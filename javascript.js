@@ -1,11 +1,9 @@
-window.onload = () => updateGrid();
-
 const slider = document.getElementById('myRange');
 const padSizeDisplay = document.getElementById('padSize');
 const gridContainer = document.querySelector('.gridContainer');
 const clearButton = document.querySelector('button#clear');
 
-slider.onmousemove = (e) =>  padSizeDisplay.textContent = `${slider.value} X ${slider.value}`;
+slider.oninput = (e) =>  padSizeDisplay.textContent = `${slider.value} X ${slider.value}`;
 slider.onchange = ()=> updateGrid();
 clearButton.onclick = () => updateGrid();
 
@@ -44,3 +42,5 @@ function updateGrid(){
 function deleteGrid(){
     gridContainer.innerHTML=''
 }
+
+window.onload = updateGrid;
